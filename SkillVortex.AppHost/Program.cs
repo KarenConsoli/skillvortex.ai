@@ -2,10 +2,8 @@ using Aspire.Hosting;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-// Add SQL Server container
-var sqlServer = builder.AddSqlServer("sqlserver",
-    password: "Password123!",  // Set explicit password
-    port: 1433)
+// Add SQL Server with the correct API
+var sqlServer = builder.AddSqlServer("sqlserver")
     .AddDatabase("SkillVortexDb");
 
 // Add API service with reference to SQL Server

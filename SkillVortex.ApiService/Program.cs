@@ -7,8 +7,9 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add database context
+// Add database context with explicit connection string
 builder.Services.AddDbContext<SkillVortexDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer("Server=localhost,53091;Database=SkillVortexDb;User Id=sa;Password=Password123!;TrustServerCertificate=True"));
 
 // Register application services
 builder.Services.AddScoped<TalentService>();
